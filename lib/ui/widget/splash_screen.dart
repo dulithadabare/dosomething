@@ -11,9 +11,9 @@ class SplashScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('dosomething',
+              Text('hamuwemu',
                 style: TextStyle(
-                    fontFamily: 'Pacifico',
+                    fontFamily: 'Oleo Script',
                     fontSize: 48,
                     fontWeight: FontWeight.normal
                 ),

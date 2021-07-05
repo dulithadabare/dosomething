@@ -30,6 +30,12 @@ abstract class Styles {
     fontSize: 36,
   );
 
+  static const button18 = TextStyle(
+    fontWeight: FontWeight.normal,
+    fontFamily: 'Roboto',
+    fontSize: 18,
+  );
+
   static const bodyBlack18 = TextStyle(
     color: Colors.black,
     fontWeight: FontWeight.normal,

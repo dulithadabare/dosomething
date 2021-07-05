@@ -17,6 +17,7 @@ import 'package:image_stack/image_stack.dart';
 class NowPage extends StatelessWidget {
 
   void _pushCreate(BuildContext context) async {
+
     final eventId = await Navigator.of(context).push(
       MaterialPageRoute<int>(
         fullscreenDialog: true,
@@ -27,7 +28,7 @@ class NowPage extends StatelessWidget {
     );
 
     if(eventId != null && eventId != -1 ) {
-      final currentActivityModel = Provider.of<CurrentActivityViewModel>(context);
+      final currentActivityModel = Provider.of<CurrentActivityViewModel>(context, listen: false);
       currentActivityModel.load();
       _pushNowDetailsPage(context, eventId);
     }

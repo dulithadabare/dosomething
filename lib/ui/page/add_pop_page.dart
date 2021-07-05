@@ -97,7 +97,7 @@ class _AddPopState extends State<AddPop> {
     } else {
       model.enabled = true;
     }
-    print(model.description);
+    // print(model.description);
   }
 
   @override

@@ -1,3 +1,4 @@
+import 'package:dosomething/business_logic/view_model/app_notification_view_model.dart';
 import 'package:dosomething/business_logic/view_model/current_activity_view_model.dart';
 import 'package:dosomething/business_logic/view_model/user_view_model.dart';
 import 'package:dosomething/ui/page/home_page.dart';
@@ -25,6 +26,7 @@ class DoSomethingApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<UserViewModel>(create: (_) => UserViewModel(),),
         ChangeNotifierProvider<CurrentActivityViewModel>(create: (_) => CurrentActivityViewModel(),),
+        ChangeNotifierProvider<AppNotificationViewModel>(create: (_) => AppNotificationViewModel(),),
       ],
       child: MaterialApp(
         title: 'DoSomething',

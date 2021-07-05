@@ -7,6 +7,7 @@ import 'package:dosomething/service/database_helper.dart';
 import 'package:dosomething/service/web_api_implementation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 class UserViewModel extends AbstractViewModel {
   final WebApi _webApi = WebApi();
@@ -244,9 +245,15 @@ class UserViewModel extends AbstractViewModel {
     signedIn = false;
     setStatus(ViewModelStatus.busy);
     // await FacebookAuth.instance.logOut();
-    await FirebaseAuth.instance.signOut();
-    print('Logged out..');
-    user = null;
-    setStatus(ViewModelStatus.idle);
+    try {
+      final token = await FirebaseMessaging.instance.getToken();
+      await _webApi.logout(token!);
+      await FirebaseAuth.instance.signOut();
+      print('Logged out');
+      user = null;
+      setStatus(ViewModelStatus.idle);
+    } on FetchDataException catch (e) {
+      print(e);
+    }
   }
 }

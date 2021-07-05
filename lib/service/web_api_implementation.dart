@@ -19,13 +19,14 @@ import 'package:http/http.dart' as http;
 import 'api_helper.dart';
 
 class WebApi {
-  // final String _baseUrl = "agile-atoll-70076.herokuapp.com";
-  final String _baseUrl = "localhost:8080";
+  final String _baseUrl = "agile-atoll-70076.herokuapp.com";
+  // final String _baseUrl = "localhost:8080";
 
   FirebaseAuth get auth => FirebaseAuth.instance;
 
   Uri createURI(String baseURL,  String resource, [Map<String, dynamic>? queryParameters] ) {
-    return Uri.http(_baseUrl, resource, queryParameters);
+    if(_baseUrl == "localhost:8080") return Uri.http(_baseUrl, resource, queryParameters);
+    return Uri.https(_baseUrl, resource, queryParameters);
   }
 
   Future<List<UserProfile>> createUser(UserProfile newUser) async {
@@ -40,6 +41,52 @@ class WebApi {
         body: jsonEncode(newUser),
       );
       final basicResponse = BasicResponse<UserProfile>.fromJson(_returnJsonFromResponse(response), UserProfile.fromJsonModel);
+      return basicResponse.data;
+    } on SocketException {
+      throw FetchDataException('No Internet connection');
+    }
+  }
+
+  Future<List<int>> saveUserToken(String token) async {
+    try {
+      final firebaseIdToken = await auth.currentUser!.getIdToken();
+      final response = await http.post(
+        createURI(_baseUrl, 'users/tokens', {
+          "token" : token,
+        }),
+        headers: <String, String>{
+          'Authorization': 'Bearer $firebaseIdToken',
+        },
+      );
+
+      final basicResponse = BasicResponse<int>.fromJson(_returnJsonFromResponse(response), (e) => e);
+      if(basicResponse.status == -1) {
+        throw FetchDataException(basicResponse.message);
+      }
+
+      return basicResponse.data;
+    } on SocketException {
+      throw FetchDataException('No Internet connection');
+    }
+  }
+
+  Future<List<int>> logout(String token) async {
+    try {
+      final firebaseIdToken = await auth.currentUser!.getIdToken();
+      final response = await http.post(
+        createURI(_baseUrl, 'users/logout', {
+          "token" : token,
+        }),
+        headers: <String, String>{
+          'Authorization': 'Bearer $firebaseIdToken',
+        },
+      );
+
+      final basicResponse = BasicResponse<int>.fromJson(_returnJsonFromResponse(response), (e) => e);
+      if(basicResponse.status == -1) {
+        throw FetchDataException(basicResponse.message);
+      }
+
       return basicResponse.data;
     } on SocketException {
       throw FetchDataException('No Internet connection');

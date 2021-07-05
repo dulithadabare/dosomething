@@ -32,14 +32,19 @@ dependencies:
   provider: ^5.0.0
   firebase_core: ^1.3.0
   firebase_auth: ^1.4.1
+  firebase_messaging: ^10.0.3
   timeago: ^3.1.0
   sqflite: ^2.0.0+3
   path_provider: ^2.0.2
   infinite_scroll_pagination: ^3.0.1+1
   image_stack: ^2.0.1
   badges: ^2.0.1
+  shared_preferences: ^2.0.6
+  audioplayers: ^0.19.1
+  soundpool: ^2.1.0
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.9.0
   flutter_test:
     sdk: flutter
 
@@ -91,3 +96,12 @@ flutter:
     - family: Pacifico
       fonts:
         - asset: fonts/Pacifico-Regular.ttf
+    - family: Oleo Script
+      fonts:
+        - asset: fonts/OleoScript-Regular.ttf
+
+flutter_icons:
+  image_path: 'assets/app_icon.png'
+  android: true
+  ios: true
+  remove_alpha_ios: true

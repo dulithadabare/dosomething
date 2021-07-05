@@ -59,10 +59,10 @@ class RoundedButton extends StatelessWidget {
           SizedBox(
             width: 8,
           ),
-          Text(buttonLabel, style: Styles.bodyBlack18,),
+          Text(buttonLabel, style: Styles.button18,),
         ],
       ) :
-      Text(buttonLabel, style: Styles.bodyBlack18,),
+      Text(buttonLabel, style: Styles.button18,),
     );
   }
 }

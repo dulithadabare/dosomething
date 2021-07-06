@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "838684864849",
+    "project_id": "dosomething-901eb",
+    "storage_bucket": "dosomething-901eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:838684864849:android:3cab36063b18b85a082370",
+        "android_client_info": {
+          "package_name": "com.dulithadabare.dosomething"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "838684864849-me3tkm3eg155nhfcgre3l0ljbnghqh8p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dulithadabare.dosomething",
+            "certificate_hash": "931b57b3dff2a7c1696f81413861721aa3a8e327"
+          }
+        },
+        {
+          "client_id": "838684864849-uk9mnbknrofcajjevvi2npc3r9q3u8m0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLId_ZsMkSV2k9Hw0wIbs9aKp6BuUf8HE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "838684864849-uk9mnbknrofcajjevvi2npc3r9q3u8m0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "838684864849-dtulbju1aatg4ndn2majn9nn5t3qf8s6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dulithadabare.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

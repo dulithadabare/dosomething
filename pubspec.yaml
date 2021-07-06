@@ -40,7 +40,6 @@ dependencies:
   image_stack: ^2.0.1
   badges: ^2.0.1
   shared_preferences: ^2.0.6
-  audioplayers: ^0.19.1
   soundpool: ^2.1.0
 
 dev_dependencies:
